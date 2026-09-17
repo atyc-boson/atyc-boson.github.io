@@ -18,9 +18,18 @@
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const fmt = (sec) => { const s = Math.max(0, Math.floor(sec)); return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; };
 
+  // The videos are ~16 MB each and need byte-range requests (to restart a call
+  // and for the idle loop), which GitHub Pages serves correctly. Hosts that do
+  // not — Cloudflare answers a range request with the whole file — get the
+  // media from GitHub Pages instead; locally and on GitHub Pages the files
+  // beside the page are used.
+  const MEDIA_HOST = "https://atyc-boson.github.io/avatar-demo/";
+  const LOCAL_MEDIA = ["localhost", "127.0.0.1", ""].includes(location.hostname) || location.hostname.endsWith(".github.io");
+  const media = (file) => (LOCAL_MEDIA ? "" : MEDIA_HOST) + "media/" + file;
+
   const CONVERSATIONS = {
-    office: { video: "media/office.mp4", idle: "media/office-idle.mp4", poster: "media/office.jpg" },
-    vacation: { video: "media/vacation.mp4", idle: "media/vacation-idle.mp4", poster: "media/vacation.jpg" },
+    office: { video: media("office.mp4"), idle: media("office-idle.mp4"), poster: media("office.jpg") },
+    vacation: { video: media("vacation.mp4"), idle: media("vacation-idle.mp4"), poster: media("vacation.jpg") },
   };
   const CONNECT_MIN_MS = 3000;   // how long "Connecting…" shows at least (longer if the video is still loading)
   const LOAD_TIMEOUT_MS = 20000;
