@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" data-phase="rest" data-timer="on" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>Boson Avatar</title>
+<meta name="description" content="Talk to a Boson Avatar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+<a class="skip" href="#stage">Skip to call</a>
+<div class="app">
+  <main class="main">
+    <header class="topbar">
+      <h1 class="title"><svg class="logo" width="113" height="22" role="img" aria-label="Boson AI" viewBox="0 0 164 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.57666 0.000244141H0V32.0001H1.57666V0.000244141Z" fill="currentColor"/><path d="M7.22743 31.9999H5.65077C5.65077 31.2314 6.19721 29.8597 7.09742 27.6919C7.65751 26.3437 8.42432 24.4976 8.42432 23.9883C8.42432 23.4798 7.6575 21.6406 7.09785 20.2983C6.19721 18.1377 5.65077 16.7704 5.65077 16.0014C5.65077 15.2325 6.19721 13.863 7.09742 11.6981C7.65751 10.3525 8.42432 8.50986 8.42432 8.00051C8.42432 7.49158 7.65751 5.64895 7.09742 4.30331C6.19721 2.13802 5.65077 0.768939 5.65077 0H7.22743C7.22743 0.508931 7.99424 2.35157 8.55389 3.69763C9.45454 5.86249 10.001 7.232 10.001 8.00051C10.001 8.76944 9.45454 10.1389 8.55389 12.3038C7.99424 13.6494 7.22743 15.4921 7.22743 16.0014C7.22743 16.5099 7.99424 18.3491 8.55347 19.6914C9.45454 21.852 10.001 23.2194 10.001 23.9883C10.001 24.7568 9.45454 26.1288 8.55389 28.2967C7.99424 29.6445 7.22743 31.4905 7.22743 31.9999Z" fill="#1D7028"/><path d="M12.878 31.9999H11.3014C11.3014 30.3311 12.8337 28.8559 14.3162 27.4289C15.5608 26.2312 16.8476 24.9925 16.8476 23.9947C16.8476 22.9973 15.5612 21.7616 14.3166 20.5669C12.8341 19.1428 11.3014 17.6706 11.3014 16.0014C11.3014 14.3323 12.8337 12.8583 14.3162 11.4326C15.5608 10.2357 16.8476 8.99833 16.8476 8.00051C16.8476 7.00269 15.5608 5.7653 14.3162 4.56885C12.8337 3.14308 11.3014 1.66916 11.3014 0H12.878C12.878 0.997826 14.1653 2.2352 15.4095 3.43208C16.8919 4.85742 18.4247 6.33136 18.4247 8.00051C18.4247 9.66966 16.8919 11.1436 15.4095 12.5694C14.1653 13.7662 12.878 15.0036 12.878 16.0014C12.878 16.9988 14.1649 18.2341 15.409 19.4292C16.8915 20.8533 18.4247 22.3255 18.4247 23.9947C18.4247 25.6634 16.8919 27.1386 15.4095 28.5652C14.1653 29.7634 12.878 31.0021 12.878 31.9999Z" fill="#17B726"/><path d="M18.5286 31.9999H16.952C16.952 29.5043 19.3994 28.3278 21.5587 27.2895C23.8016 26.2111 25.2717 25.4 25.2717 24.0007C25.2717 22.6013 23.8016 21.7902 21.5583 20.7118C19.3994 19.6735 16.952 18.4971 16.952 16.0014C16.952 13.5049 19.3994 12.3285 21.5587 11.2902C23.8016 10.2118 25.2717 9.40028 25.2717 8.00051C25.2717 6.60074 23.8012 5.78918 21.5583 4.71079C19.399 3.67248 16.952 2.49563 16.952 0H18.5286C18.5286 1.39934 19.9987 2.2109 22.2416 3.28971C24.4009 4.3276 26.8488 5.50446 26.8488 8.00051C26.8488 10.4966 24.4013 11.6734 22.242 12.7113C19.9991 13.7897 18.5286 14.6017 18.5286 16.0014C18.5286 17.4008 19.9987 18.2119 22.242 19.2907C24.4009 20.3286 26.8488 21.505 26.8488 24.0007C26.8488 26.4963 24.4013 27.6731 22.242 28.7106C19.9987 29.789 18.5286 30.6005 18.5286 31.9999Z" fill="#12FF23"/><path d="M136.441 28.4955L146.256 4.71672H147.466L157.282 28.4955H155.934L152.789 20.8227H140.899L137.754 28.4955H136.441ZM141.383 19.6476H152.305L146.948 6.47938H146.775L141.383 19.6476Z" fill="currentColor"/><path d="M163.883 4.71672H162.639V28.4955H163.883V4.71672Z" fill="currentColor"/><path d="M36.9549 28.4955V4.71672H48.0148C49.5817 4.71672 50.8259 4.95865 51.7475 5.44252C52.6692 5.9264 53.3259 6.61187 53.7176 7.49897C54.1093 8.38608 54.3051 9.45173 54.3051 10.696C54.3051 11.7098 54.1669 12.6026 53.8904 13.3745C53.6139 14.1464 53.1819 14.7743 52.5943 15.2582C52.0068 15.7421 51.2291 16.0877 50.2614 16.295V16.4333C51.4365 16.6407 52.3351 17.0151 52.9572 17.5566C53.5793 18.098 54.0056 18.772 54.236 19.5785C54.4664 20.3849 54.5816 21.272 54.5816 22.2397C54.5816 23.0692 54.4837 23.8642 54.2879 24.6245C54.092 25.3849 53.7579 26.0531 53.2856 26.6291C52.8132 27.2052 52.1393 27.6602 51.2637 27.9943C50.3881 28.3284 49.2591 28.4955 47.8766 28.4955H36.9549ZM39.9273 25.9379H47.1853C48.3144 25.9379 49.2015 25.8054 49.8466 25.5404C50.4918 25.2754 50.9469 24.8377 51.2118 24.2271C51.4768 23.6165 51.6093 22.8273 51.6093 21.8596C51.6093 20.8688 51.4653 20.0681 51.1773 19.4575C50.8892 18.8469 50.4227 18.4091 49.7775 18.1441C49.1323 17.8791 48.2683 17.7467 47.1853 17.7467H39.9273V25.9379ZM39.9273 15.1545H47.0471C48.0148 15.1545 48.8155 15.0162 49.4492 14.7397C50.0828 14.4632 50.5552 14.0312 50.8662 13.4437C51.1773 12.8561 51.3328 12.1245 51.3328 11.249C51.3328 10.2812 51.2118 9.50935 50.9699 8.9333C50.728 8.35727 50.2959 7.93677 49.6738 7.67178C49.0517 7.40681 48.1761 7.27432 47.0471 7.27432H39.9273V15.1545Z" fill="currentColor"/><path d="M67.024 28.772C65.5724 28.772 64.3685 28.6856 63.4123 28.5128C62.4561 28.34 61.7014 28.0577 61.1484 27.666C60.5955 27.2743 60.1865 26.7328 59.9215 26.0416C59.6565 25.3503 59.4895 24.4805 59.4203 23.4321C59.3512 22.3837 59.3167 21.1338 59.3167 19.6821C59.3167 18.2305 59.3512 16.9805 59.4203 15.9321C59.4895 14.8838 59.6565 14.014 59.9215 13.3227C60.1865 12.6315 60.5955 12.09 61.1484 11.6983C61.7014 11.3066 62.4561 11.0243 63.4123 10.8515C64.3685 10.6787 65.5724 10.5923 67.024 10.5923C68.4987 10.5923 69.7083 10.6787 70.653 10.8515C71.5978 11.0243 72.3524 11.3066 72.9169 11.6983C73.4814 12.09 73.8961 12.6315 74.1611 13.3227C74.4261 14.014 74.5931 14.8838 74.6622 15.9321C74.7314 16.9805 74.7659 18.2305 74.7659 19.6821C74.7659 21.1338 74.7314 22.3837 74.6622 23.4321C74.5931 24.4805 74.4261 25.3503 74.1611 26.0416C73.8961 26.7328 73.4814 27.2743 72.9169 27.666C72.3524 28.0577 71.5978 28.34 70.653 28.5128C69.7083 28.6856 68.4987 28.772 67.024 28.772ZM67.024 26.3872C68.2682 26.3872 69.2245 26.3066 69.8927 26.1453C70.5609 25.984 71.039 25.6729 71.327 25.2121C71.6151 24.7513 71.7879 24.0773 71.8454 23.1902C71.903 22.3031 71.9319 21.1338 71.9319 19.6821C71.9319 18.2305 71.903 17.0612 71.8454 16.1741C71.7879 15.287 71.6151 14.613 71.327 14.1522C71.039 13.6914 70.5609 13.3803 69.8927 13.219C69.2245 13.0577 68.2682 12.9771 67.024 12.9771C65.8028 12.9771 64.8524 13.0577 64.1726 13.219C63.4929 13.3803 63.0148 13.6914 62.7383 14.1522C62.4618 14.613 62.289 15.287 62.2199 16.1741C62.1508 17.0612 62.1162 18.2305 62.1162 19.6821C62.1162 21.1338 62.1508 22.3031 62.2199 23.1902C62.289 24.0773 62.4618 24.7513 62.7383 25.2121C63.0148 25.6729 63.4929 25.984 64.1726 26.1453C64.8524 26.3066 65.8028 26.3872 67.024 26.3872Z" fill="currentColor"/><path d="M85.8604 28.772C85.1922 28.772 84.4779 28.7489 83.7176 28.7029C82.9572 28.6568 82.2083 28.605 81.471 28.5473C80.7336 28.4897 80.0655 28.4149 79.4664 28.3227V26.0416C80.0194 26.0877 80.5551 26.1337 81.0735 26.1798C81.592 26.2259 82.1046 26.2662 82.6116 26.3008C83.1185 26.3354 83.6254 26.3584 84.1323 26.3699C84.6392 26.3814 85.1576 26.3872 85.6876 26.3872C86.8858 26.3872 87.7556 26.3008 88.297 26.128C88.8385 25.9552 89.1957 25.6614 89.3685 25.2467C89.5413 24.8319 89.6277 24.2904 89.6277 23.6222C89.6277 22.8619 89.5643 22.3089 89.4376 21.9632C89.3109 21.6176 89.092 21.393 88.7809 21.2893C88.4699 21.1856 88.0033 21.0992 87.3811 21.0301L82.8189 20.5116C81.736 20.3964 80.918 20.1603 80.365 19.8031C79.812 19.446 79.4318 18.9333 79.2245 18.2651C79.0171 17.5969 78.9134 16.7559 78.9134 15.7421C78.9134 14.59 79.0747 13.6683 79.3973 12.9771C79.7199 12.2858 80.1807 11.7674 80.7798 11.4218C81.3788 11.0762 82.1046 10.8515 82.9572 10.7478C83.8097 10.6441 84.7659 10.5923 85.8258 10.5923C86.4249 10.5923 87.0585 10.6153 87.7268 10.6614C88.395 10.7075 89.0516 10.7651 89.6968 10.8342C90.342 10.9033 90.8949 10.984 91.3558 11.0762V13.3573C90.7567 13.2651 90.1519 13.1902 89.5413 13.1326C88.9307 13.075 88.3086 13.0347 87.6749 13.0116C87.0413 12.9886 86.4019 12.9771 85.7567 12.9771C84.8811 12.9771 84.1323 13.0232 83.5102 13.1153C82.8881 13.2075 82.4215 13.4379 82.1104 13.8066C81.7993 14.1752 81.6438 14.7858 81.6438 15.6384C81.6438 16.3066 81.6957 16.8077 81.7994 17.1418C81.903 17.4759 82.1162 17.7063 82.4387 17.8331C82.7613 17.9598 83.2106 18.0577 83.7867 18.1268L88.5562 18.6453C89.501 18.7374 90.244 18.916 90.7855 19.181C91.327 19.446 91.7187 19.9125 91.9606 20.5808C92.2026 21.249 92.3235 22.2512 92.3235 23.5877C92.3235 24.6937 92.191 25.5865 91.9261 26.2662C91.6611 26.946 91.2521 27.4701 90.6991 27.8388C90.1461 28.2075 89.4664 28.4552 88.6599 28.5819C87.8535 28.7086 86.9203 28.772 85.8604 28.772Z" fill="currentColor"/><path d="M104.213 28.772C102.761 28.772 101.557 28.6856 100.601 28.5128C99.6449 28.34 98.8903 28.0577 98.3373 27.666C97.7843 27.2743 97.3754 26.7328 97.1104 26.0416C96.8454 25.3503 96.6784 24.4805 96.6092 23.4321C96.5401 22.3837 96.5055 21.1338 96.5055 19.6821C96.5055 18.2305 96.5401 16.9805 96.6092 15.9321C96.6784 14.8838 96.8454 14.014 97.1104 13.3227C97.3754 12.6315 97.7843 12.09 98.3373 11.6983C98.8903 11.3066 99.6449 11.0243 100.601 10.8515C101.557 10.6787 102.761 10.5923 104.213 10.5923C105.688 10.5923 106.897 10.6787 107.842 10.8515C108.787 11.0243 109.541 11.3066 110.106 11.6983C110.67 12.09 111.085 12.6315 111.35 13.3227C111.615 14.014 111.782 14.8838 111.851 15.9321C111.92 16.9805 111.955 18.2305 111.955 19.6821C111.955 21.1338 111.92 22.3837 111.851 23.4321C111.782 24.4805 111.615 25.3503 111.35 26.0416C111.085 26.7328 110.67 27.2743 110.106 27.666C109.541 28.0577 108.787 28.34 107.842 28.5128C106.897 28.6856 105.688 28.772 104.213 28.772ZM104.213 26.3872C105.457 26.3872 106.413 26.3066 107.082 26.1453C107.75 25.984 108.228 25.6729 108.516 25.2121C108.804 24.7513 108.977 24.0773 109.034 23.1902C109.092 22.3031 109.121 21.1338 109.121 19.6821C109.121 18.2305 109.092 17.0612 109.034 16.1741C108.977 15.287 108.804 14.613 108.516 14.1522C108.228 13.6914 107.75 13.3803 107.082 13.219C106.413 13.0577 105.457 12.9771 104.213 12.9771C102.992 12.9771 102.041 13.0577 101.362 13.219C100.682 13.3803 100.204 13.6914 99.9272 14.1522C99.6507 14.613 99.4779 15.287 99.4088 16.1741C99.3396 17.0612 99.3051 18.2305 99.3051 19.6821C99.3051 21.1338 99.3396 22.3031 99.4088 23.1902C99.4779 24.0773 99.6507 24.7513 99.9272 25.2121C100.204 25.6729 100.682 25.984 101.362 26.1453C102.041 26.3066 102.992 26.3872 104.213 26.3872Z" fill="currentColor"/><path d="M117.174 28.4955V10.8688H119.731L119.835 13.3918H120.042C120.296 12.8388 120.647 12.355 121.097 11.9402C121.546 11.5255 122.156 11.1971 122.928 10.9552C123.7 10.7133 124.685 10.5923 125.883 10.5923C127.197 10.5923 128.245 10.7305 129.029 11.007C129.812 11.2835 130.417 11.6983 130.843 12.2513C131.269 12.8043 131.552 13.5128 131.69 14.3768C131.828 15.2409 131.897 16.272 131.897 17.4702V28.4955H129.098V18.4379C129.098 17.2397 129.046 16.2893 128.942 15.5865C128.838 14.8838 128.637 14.3538 128.337 13.9967C128.038 13.6395 127.6 13.4033 127.024 13.2881C126.448 13.1729 125.688 13.1153 124.743 13.1153C123.614 13.1153 122.727 13.2593 122.082 13.5474C121.436 13.8354 120.964 14.2501 120.665 14.7916C120.365 15.3331 120.181 15.9897 120.112 16.7616C120.042 17.5335 120.008 18.4149 120.008 19.4056V28.4955H117.174Z" fill="currentColor"/></svg><span class="sr-only">Boson Avatar</span></h1>
+      <div class="topbar-right">
+        <button class="btn btn-tertiary btn-sq btn-sm" id="settings-btn" aria-label="Settings" aria-controls="sidebar" aria-expanded="false" title="Settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="notes" id="notes"></div>
+    <span class="sr-only" id="note-announce" role="status" aria-live="polite"></span>
+
+    <div class="stage-wrap">
+      <div class="stage thin-scroll" id="stage" tabindex="-1">
+        <div class="stage-inner">
+          <div class="scene" id="scene">
+            <div class="scene-head">
+              <h2 class="scene-title" id="rest-title">Welcome to Higgs Avatar</h2>
+            </div>
+
+            <!-- The call frame. Two layers (the Avatar and your camera) swap
+                 between the main view and the picture-in-picture tile. -->
+            <div class="frame" id="frame" data-corner="br">
+              <div class="layer" id="avatar-layer" data-slot="main">
+                <img id="poster" alt="" decoding="async">
+                <video id="avatar-video" playsinline preload="auto"></video>
+                <video id="idle-video" playsinline muted loop preload="metadata"></video>
+              </div>
+              <div class="layer" id="camera-layer" data-slot="pip" hidden>
+                <video id="camera-video" autoplay playsinline muted></video>
+              </div>
+              <button class="pip-hit" id="pip-hit" type="button" hidden aria-label="Swap views" aria-describedby="pip-hint">
+                <span class="swap" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></svg></span>
+              </button>
+              <span class="sr-only" id="pip-hint">Drag, or use the arrow keys, to move the picture to another corner.</span>
+              <span class="sr-only" id="pip-announce" aria-live="polite"></span>
+              <div class="call-timer" id="call-timer" role="timer" aria-label="Call duration">
+                <span class="timer-dot" aria-hidden="true"></span><span id="timer-text">00:00</span>
+              </div>
+              <button class="btn" id="btn-enable-audio" type="button" hidden>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6v4H5l3.5 3V3L5 6zM10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.5a6 6 0 0 1 0 9"/></svg>
+                Enable Sound
+              </button>
+            </div>
+
+            <!-- Call controls: the same centred row before and during a call.
+                 Start Call swaps for End Call once the call is live. -->
+            <div class="start-row" id="start-row" role="toolbar" aria-label="Call controls">
+              <div class="cb-group" id="cam-group">
+                <button class="cb-btn" id="btn-cam" type="button" role="switch" aria-checked="false" aria-label="Camera" title="Turn camera on">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5 21.5 7v10l-6-3.5"/></svg>
+                  <span class="cb-dot" id="dot-cam" aria-hidden="true"></span>
+                </button>
+                <button class="cb-arrow" id="cam-arrow" type="button" aria-label="Choose camera" aria-haspopup="menu" aria-expanded="false" aria-controls="cam-menu">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
+                </button>
+                <div class="menu" id="cam-menu" role="menu" aria-label="Camera" hidden></div>
+              </div>
+              <div class="cb-group" id="mic-group">
+                <button class="cb-btn" id="btn-mic" type="button" role="switch" aria-checked="false" aria-label="Microphone" title="Turn microphone on">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                  <svg class="mic-level" id="lvl-mic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/></svg>
+                  <span class="cb-dot" id="dot-mic" aria-hidden="true"></span>
+                </button>
+                <button class="cb-arrow" id="mic-arrow" type="button" aria-label="Choose microphone" aria-haspopup="menu" aria-expanded="false" aria-controls="mic-menu">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
+                </button>
+                <div class="menu" id="mic-menu" role="menu" aria-label="Microphone" hidden></div>
+              </div>
+              <button class="btn btn-start" id="btn-start" type="button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+                <span id="start-label">Start Call</span>
+              </button>
+              <button class="btn btn-end" id="btn-end" type="button" hidden>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.5"/></svg>
+                <span>End Call</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="sidebar" id="sidebar" aria-label="Settings" aria-hidden="true">
+    <div class="side-head">
+      <h2 class="side-title">Settings</h2>
+      <button class="btn btn-tertiary btn-sq btn-sm" id="close-settings" type="button" aria-label="Close settings">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+      </button>
+    </div>
+    <div class="side-scroll thin-scroll">
+      <section class="group">
+        <h2 class="group-title" id="convo-label">Conversation</h2>
+        <div class="switch" id="convo" role="radiogroup" aria-labelledby="convo-label" aria-describedby="convo-help">
+          <button type="button" class="opt" role="radio" aria-checked="true" data-value="office">Office</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-value="vacation">Vacation</button>
+        </div>
+        <p class="help" id="convo-help">Plays when you start a call.</p>
+      </section>
+      <section class="group">
+        <h2 class="group-title">Display</h2>
+        <label class="field-label" id="ratio-label">Aspect ratio</label>
+        <div class="switch" id="ratio" role="radiogroup" aria-labelledby="ratio-label">
+          <button type="button" class="opt" role="radio" aria-checked="true" data-value="1:1">1:1</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-value="4:3">4:3</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-value="3:4">3:4</button>
+        </div>
+        <label class="field-label" id="main-view-label">Main view</label>
+        <div class="switch" id="main-view" role="radiogroup" aria-labelledby="main-view-label" aria-describedby="main-view-help">
+          <button type="button" class="opt" role="radio" aria-checked="true" data-value="avatar">Avatar</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-value="camera">Self view</button>
+        </div>
+        <p class="help" id="main-view-help">Which one fills the frame when your camera is on. Tap the small picture to swap.</p>
+        <label class="field-label" id="timer-label">Call timer</label>
+        <div class="switch" id="timer-mode" role="radiogroup" aria-labelledby="timer-label">
+          <button type="button" class="opt" role="radio" aria-checked="true" data-value="on">On</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-value="off">Off</button>
+        </div>
+      </section>
+    </div>
+    <footer class="side-foot">
+      <span class="status" id="status-chip" role="status" aria-live="polite">Idle</span>
+      <div class="row-gap">
+        <button class="btn btn-tertiary btn-sq btn-sm" id="theme-btn" type="button" aria-label="Switch theme" title="Switch theme">
+          <svg class="sun" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.25"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.06 1.06M11.54 11.54l1.06 1.06M3.4 12.6l1.06-1.06M11.54 4.46l1.06-1.06"/></svg>
+          <svg class="moon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg>
+        </button>
+      </div>
+    </footer>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+</div>
+<script src="app.js?v=6"></script>
+</body>
+</html>
