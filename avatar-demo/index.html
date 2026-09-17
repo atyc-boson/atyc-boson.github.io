@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <a class="skip" href="#stage">Skip to call</a>
@@ -46,7 +46,7 @@
                 <video id="idle-video" playsinline muted loop preload="metadata"></video>
               </div>
               <div class="layer" id="camera-layer" data-slot="pip" hidden>
-                <video id="camera-video" autoplay playsinline muted></video>
+                <div class="cam-mirror" id="cam-mirror"><video id="camera-video" autoplay playsinline muted></video></div>
               </div>
               <button class="pip-hit" id="pip-hit" type="button" hidden aria-label="Swap views" aria-describedby="pip-hint">
                 <span class="swap" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></svg></span>
@@ -150,6 +150,6 @@
   </aside>
   <div class="scrim" id="scrim" hidden></div>
 </div>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

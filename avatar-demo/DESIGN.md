@@ -70,10 +70,13 @@ transcript and text output modes, eval window (timeline + log), docs link.
 - During a live call, a running camera shows as a tile in a corner of the
   frame (default bottom right).
 - Settings → Display → **Main view: Avatar | Self view** picks which feed
-  fills the frame when the self-view appears; changing it mid-call swaps
-  right away. Tapping the tile still swaps during the call.
-- After a swap or resize settles, each video's layout is nudged so browsers
-  that keep drawing a video at its old size redraw it (no background strip).
+  fills the frame when a call starts; changing it mid-call swaps right away.
+  Tapping the tile swaps during the call, and that layout survives turning
+  the camera off and on; the next call starts from the setting again.
+- The camera video is sized by script to overfill its box (in % of the layer,
+  centred) and mirrored on a wrapper, not via object-fit on a transformed
+  live stream, which some browsers render with a strip of background. After a
+  swap or resize settles, each video's layout is also nudged to redraw.
 - **Tap/click the tile to swap** main and tile; both layers animate between
   their rectangles (320 ms, the site's standard ease). Swap icon on hover
   (desktop) or as a corner badge for a few seconds (touch).

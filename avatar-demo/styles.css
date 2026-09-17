@@ -302,7 +302,13 @@ html[data-phase="live"] #avatar-video.has-frames, #avatar-video.holding { opacit
 #idle-video { position: absolute; inset: 0; opacity: 0; transition: opacity 240ms ease-in-out; }
 html[data-phase="live"] #idle-video.active { opacity: 1; transition: none; }
 /* camera layer: mirrored when front-facing; spinner until the first frame */
-#camera-video.mirror { transform: scaleX(-1); }
+/* The camera video is sized by app.js (fitCamera) to always overfill its box,
+   and mirrored on a wrapper rather than the <video> itself: some browsers
+   mishandle object-fit on a transformed live camera stream and leave a strip
+   of background showing. */
+.cam-mirror { position: absolute; inset: 0; overflow: hidden; }
+.cam-mirror.mirror { transform: scaleX(-1); }
+.layer #camera-video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 #camera-video { opacity: 0; transition: opacity 200ms ease-in-out; }
 #camera-layer.ready #camera-video { opacity: 1; }
 #camera-layer::after { content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.8); border-top-color: transparent; animation: spin .8s linear infinite; }

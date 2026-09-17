@@ -127,10 +127,14 @@
   };
   // Which feed fills the frame when the self-view appears (tap the tile to swap during a call).
   let mainViewPref = pref.get("mainView") === "camera" ? "camera" : "avatar";
+  // The layout for the current call: starts from the setting when a call goes
+  // live, follows swaps, and survives turning the camera off and on mid-call.
+  let callMain = mainViewPref;
   const setMainView = (value) => {
     mainViewPref = value === "camera" ? "camera" : "avatar";
     markSwitch("main-view", mainViewPref);
     pref.set("mainView", mainViewPref);
+    callMain = mainViewPref;
     if (!cameraLayer.hidden && main !== mainViewPref) setMain(mainViewPref);
   };
   const setTimerMode = (mode) => {
@@ -313,6 +317,7 @@
   // ------------------------------------------------------------------- phase
   const LOCK_ICON = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>';
   function setPhase(next) {
+    const prevPhase = phase;
     phase = next;
     root.dataset.phase = next;
     $("status-chip").textContent = { rest: "Idle", connecting: "Connecting", live: "Live" }[next];
@@ -337,6 +342,7 @@
     $("convo-help").innerHTML = locked ? `<span class="help-lock">${LOCK_ICON}End the call to switch conversations.</span>` : "Plays when you start a call.";
     if (next !== "live") timerEl.classList.remove("running");
     // Self-view: only while the call is live.
+    if (next === "live" && prevPhase !== "live") callMain = mainViewPref;   // each new call starts from the setting
     if (next === "live" && camStream && cameraLayer.hidden) showCameraLayer();
     if (next !== "live" && !cameraLayer.hidden) hideCameraLayer(next === "connecting");
     syncCamButton();
@@ -568,7 +574,7 @@
       camDeviceId = s.deviceId || deviceId || "";
       pref.set("camDevice", camDeviceId);
       // Mirror a front-facing camera like every call app; never a rear one.
-      camVideo.classList.toggle("mirror", s.facingMode !== "environment");
+      $("cam-mirror").classList.toggle("mirror", s.facingMode !== "environment");
       if (s.width && s.height) camAspect = s.width / s.height;
       track.addEventListener("ended", () => {
         if (camStream !== stream) return;
@@ -614,7 +620,7 @@
     if (camStream && camVideo.paused) camVideo.play().catch(() => {});
     cameraLayer.hidden = false;
     pipHit.hidden = false;
-    setMain(mainViewPref, { instant: true });
+    setMain(callMain, { instant: true });
     flashHint();
     if (!prefersReducedMotion()) cameraLayer.animate([{ opacity: 0, transform: "scale(.9)" }, { opacity: 1, transform: "none" }], { duration: 220, easing: "cubic-bezier(.4,0,.2,1)" });
   }
@@ -635,7 +641,8 @@
       cameraLayer.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(.9)" }], { duration: 160, easing: "ease-in" }).onfinish = finish;
     }, wasMain ? 320 : 0);
   }
-  camVideo.addEventListener("playing", () => cameraLayer.classList.add("ready"));
+  camVideo.addEventListener("playing", () => { cameraLayer.classList.add("ready"); fitCamera(); });
+  camVideo.addEventListener("loadedmetadata", () => fitCamera());
   // Some browsers keep drawing a <video> at its old size after its box has
   // been resized by a transition, leaving a strip of background showing.
   // Once a swap or resize settles, nudge each video's layout so it redraws.
@@ -649,6 +656,7 @@
   });
   camVideo.addEventListener("resize", () => {
     if (camVideo.videoWidth && camVideo.videoHeight) { camAspect = camVideo.videoWidth / camVideo.videoHeight; sizePip(); }
+    fitCamera();
   });
   $("btn-cam").onclick = () => {
     if (camStream || camBusy) stopCamera(); else startCamera();
@@ -687,6 +695,25 @@
     frame.style.setProperty("--pip-w", w + "px");
     frame.style.setProperty("--pip-h", h + "px");
     if (timerSide) frame.dataset.timerside = timerSide; else delete frame.dataset.timerside;
+    fitCamera(w / h);
+  }
+  // Cover the camera layer with the camera video by sizing the element itself
+  // (in % of the layer, so it follows the swap animation), centred, instead of
+  // trusting object-fit on a live stream.
+  function fitCamera(pipAspect) {
+    const vw = camVideo.videoWidth, vh = camVideo.videoHeight;
+    const st = camVideo.style;
+    if (!vw || !vh) { st.width = st.height = "100%"; st.left = st.top = "0"; return; }
+    if (pipAspect == null) { const { w, h } = pipLayout(); pipAspect = w / h; }
+    const boxAspect = cameraLayer.dataset.slot === "main" ? frameRatio() : pipAspect;
+    const videoAspect = vw / vh;
+    const wPct = videoAspect > boxAspect ? (videoAspect / boxAspect) * 100 : 100;
+    const hPct = videoAspect > boxAspect ? 100 : (boxAspect / videoAspect) * 100;
+    // +0.5% bleed so rounding never leaves a hairline of background
+    st.width = `${(wPct + 0.5).toFixed(3)}%`;
+    st.height = `${(hPct + 0.5).toFixed(3)}%`;
+    st.left = `${((100 - wPct - 0.5) / 2).toFixed(3)}%`;
+    st.top = `${((100 - hPct - 0.5) / 2).toFixed(3)}%`;
   }
   function setMain(which, { instant = false } = {}) {
     main = which;
@@ -749,6 +776,7 @@
   pipHit.addEventListener("click", () => {
     if (performance.now() < suppressClickUntil || cameraLayer.hidden) return;
     setMain(main === "avatar" ? "camera" : "avatar");
+    callMain = main;
     flashHint();
   });
   pipHit.addEventListener("keydown", (e) => {
